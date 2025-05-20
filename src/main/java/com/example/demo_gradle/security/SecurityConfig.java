@@ -16,7 +16,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // Only disable CSRF in dev/testing or if you're using token-based auth
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/", "/login").permitAll()
                         .anyRequest().authenticated()
                 );
         return http.build();
